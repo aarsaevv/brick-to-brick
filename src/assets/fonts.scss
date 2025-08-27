@@ -1,0 +1,29 @@
+@mixin Headline-1 {
+  font-weight: 700;
+  font-size: 36px;
+}
+
+@mixin Headline-2 {
+  font-weight: 700;
+  font-size: 24px;
+}
+
+@mixin Paragraph-1 {
+  font-weight: 400;
+  font-size: 18px;
+}
+
+@mixin Caption-1 {
+  font-weight: 700;
+  font-size: 16px;
+}
+
+@mixin Caption-2 {
+  font-weight: 400;
+  font-size: 14px;
+}
+
+@mixin Caption-3 {
+  font-weight: 300;
+  font-size: 14px;
+}

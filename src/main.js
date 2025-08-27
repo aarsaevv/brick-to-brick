@@ -1,4 +1,4 @@
-import '@/assets/style.css';
 import App from '@/app.vue';
+import router from '@/code/router.js';
 
-createApp(App).mount('#app');
+createApp(App).use(router).mount('#app');

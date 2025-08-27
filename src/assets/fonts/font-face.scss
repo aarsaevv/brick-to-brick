@@ -1,0 +1,23 @@
+@font-face {
+  font-family: Alegreya Sans;
+  src:
+    local('Alegreya-Sans-Light'), url('@/assets/fonts/AlegreyaSans-Light.ttf');
+  font-weight: 300;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Alegreya Sans;
+  src:
+    local('Alegreya-Sans-Regular'),
+    url('@/assets/fonts/AlegreyaSans-Regular.ttf');
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Alegreya Sans;
+  src: local('Alegreya-Sans-Bold'), url('@/assets/fonts/AlegreyaSans-Bold.ttf');
+  font-weight: 700;
+  font-display: swap;
+}
