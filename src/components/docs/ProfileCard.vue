@@ -147,13 +147,13 @@
     display: flex;
     align-items: center;
     gap: var(--spacing-10);
-    border-radius: var(--border-radius-2);
   }
 
   .statusIcon {
     display: block;
     width: 9px;
     height: 9px;
+    border-radius: var(--border-radius-2);
   }
 
   .active {

@@ -1,3 +1,5 @@
+@import '@/assets/typographic/font-face.scss';
+
 :root {
   // colors
   --bg-color-primary: rgba(242, 245, 248, 1);
@@ -24,6 +26,7 @@
   --spacing-8: 8px;
   --spacing-10: 10px;
   --spacing-16: 16px;
+  --spacing-18: 18px;
   --spacing-20: 20px;
   --spacing-28: 28px;
   --spacing-30: 30px;
@@ -34,6 +37,7 @@
   --spacing-48: 48px;
   --spacing-54: 54px;
   --spacing-90: 90px;
+  --spacing-164: 164px;
   // border
   --border-radius-2: 2px;
   --border-radius-10: 10px;
@@ -45,25 +49,6 @@
 }
 
 // Custom CSS reset
-body {
-  font-family: 'Alegreya Sans', Arial, sans-serif;
-  font-size: 18px;
-  margin: 0;
-  padding: 0;
-  background-color: var(--bg-color-primary);
-}
-
-h1 {
-  margin: 0;
-  padding: 0;
-}
-
-ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
 html,
 body,
 div,
@@ -77,11 +62,16 @@ article,
 aside,
 footer,
 header,
-section {
+section,
+ul {
   margin: 0;
   padding: 0;
   border: 0;
   vertical-align: baseline;
+}
+
+ul {
+  list-style: none;
 }
 
 a {
@@ -89,17 +79,12 @@ a {
   color: rgba(0, 0, 0, 1);
 }
 
-ul {
-  list-style: none;
-}
+body {
+  font-family: 'Alegreya Sans', Arial, sans-serif;
+  font-size: 16px;
+  background-color: var(--bg-color-primary);
 
-.fade-enter-active,
-.fade-leave-active {
-  opacity: 1;
-  transition: opacity 200ms;
-}
-
-.fade-enter,
-.fade-leave-to {
-  opacity: 0;
+  &.locked {
+    overflow: hidden;
+  }
 }

@@ -1,0 +1,11 @@
+{
+  "id": "1",
+  "name": "Абрамова Екатерина",
+  "gender": "female",
+  "avatarUrl": "https://i.pravatar.cc/128?img=47",
+  "status": "active",
+  "personal_phone": "8-900-000-00-00",
+  "parents_phone": "8-900-000-00-01",
+  "birthday": "25.04.2004 (17 лет)",
+  "address": "г. Краснодар, ул. Советская 24, кв. 208"
+}

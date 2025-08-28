@@ -27,23 +27,17 @@
   const account = ref({});
 
   const fetchAccountData = async () => {
-    return new Promise((resolve) => {
-      window.setTimeout(() => {
-        resolve({
-          id: '0',
-          name: 'Сергеев Иван',
-          avatarUrl: 'https://i.pravatar.cc/64?img=8',
-        });
-      }, 100);
-    });
-  };
-
-  onMounted(async () => {
     try {
-      account.value = await fetchAccountData();
+      const res = await fetch('/account.mock.json');
+
+      return await res.json();
     } catch (e) {
       console.error(e);
     }
+  };
+
+  onBeforeMount(async () => {
+    account.value = await fetchAccountData();
   });
 </script>
 

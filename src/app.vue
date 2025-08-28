@@ -6,9 +6,7 @@
       <router-view />
     </div>
     <teleport to="body">
-      <transition name="fade">
-        <component v-if="isModalOpened" :is="currentModalComponent" />
-      </transition>
+      <component v-if="isModalOpened" :is="currentModalComponent" />
     </teleport>
   </section>
 </template>
@@ -19,6 +17,14 @@
   import useModal from '@/code/use-modal.js';
 
   const { isModalOpened, currentModalComponent } = useModal();
+
+  watch(isModalOpened, () => {
+    if (isModalOpened.value) {
+      document.body.classList.add('locked');
+    } else {
+      document.body.classList.remove('locked');
+    }
+  });
 </script>
 
 <style lang="scss" module>

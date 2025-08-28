@@ -36,7 +36,7 @@
   @use '@/assets/fonts.scss' as fonts;
 
   .tint {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;

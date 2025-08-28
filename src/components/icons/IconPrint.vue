@@ -29,3 +29,9 @@
 <script setup>
   import AppIcon from '@/components/ui/AppIcon.vue';
 </script>
+
+<style lang="scss" scoped>
+  path {
+    color: var(--icon-color-ghost);
+  }
+</style>

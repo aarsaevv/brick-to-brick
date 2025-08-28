@@ -1,9 +1,9 @@
 import AddDocumentModal from '@/components/modals/AddDocumentModal.vue';
 
-// Решил не тащить зависимости, написал небольшой синглтон для модалки
+// Решил не тащить зависимости, написал небольшой синглтон для модалок
 // В продакшн коде, конечно, написал бы стор через Pinia
 const modalDict = {
-  add_document: AddDocumentModal,
+  add_doc: AddDocumentModal,
 };
 
 const currentModalName = ref(null);
