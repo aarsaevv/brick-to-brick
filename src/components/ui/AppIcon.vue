@@ -13,8 +13,8 @@
 <script>
   export default {
     props: {
-      width: { type: Number, default: 25 },
-      height: { type: Number, default: 25 },
+      width: { type: String, default: '25' },
+      height: { type: String, default: '25' },
     },
   };
 </script>

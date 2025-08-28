@@ -1,5 +1,5 @@
 <template>
-  <app-icon>
+  <app-icon width="95" height="42">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="95"

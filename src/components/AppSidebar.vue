@@ -1,5 +1,5 @@
 <template>
-  <nav>
+  <aside>
     <ul :class="$style.sidebar">
       <router-link to="/" :class="$style.logo">
         <icon-logo :class="$style.logoIcon" />
@@ -11,7 +11,7 @@
         </router-link>
       </li>
     </ul>
-  </nav>
+  </aside>
 </template>
 
 <script setup>
@@ -23,13 +23,6 @@
   @use '@/assets/fonts.scss' as fonts;
 
   .sidebar {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: var(--sidebar-width);
-    height: 100vh;
-    background-color: var(--background-color-accent-primary);
-    text-align: center;
     display: flex;
     flex-direction: column;
   }
@@ -49,11 +42,10 @@
     gap: var(--spacing-10);
     color: var(--text-color-light);
     padding: var(--spacing-20) 0;
+    transition: background-color 200ms ease;
 
     &:hover {
-      background-color: rgba(86, 150, 255, 1);
+      background-color: var(--bg-color-accent-primary-hover);
     }
-
-    @include fonts.Paragraph-1();
   }
 </style>

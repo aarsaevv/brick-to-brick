@@ -1,5 +1,5 @@
 <template>
-  <app-icon>
+  <app-icon width="25" height="25">
     <svg
       width="25"
       height="25"
@@ -29,8 +29,8 @@
   import AppIcon from '@/components/ui/AppIcon.vue';
 </script>
 
-<style lang="scss" scoped>
-  svg path {
+<style scoped>
+  path {
     color: var(--icon-color-dark);
   }
 </style>

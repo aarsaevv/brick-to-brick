@@ -23,6 +23,7 @@
 
   .breadcrumb {
     color: var(--text-color-dark);
+    text-shadow: 0 3px 3px rgba(0, 0, 0, 0.25);
 
     &:after {
       content: '/';

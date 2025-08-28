@@ -10,7 +10,7 @@
   });
 </script>
 
-<style module lang="scss">
+<style lang="scss" module>
   .button {
     display: flex;
     justify-content: center;

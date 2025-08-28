@@ -1,0 +1,105 @@
+:root {
+  // colors
+  --bg-color-primary: rgba(242, 245, 248, 1);
+  --bg-color-light: rgba(255, 255, 255, 1);
+  --bg-color-accent-primary: rgba(69, 138, 251, 1);
+  --bg-color-accent-primary-hover: rgba(86, 150, 255, 1);
+  --bg-color-accent-secondary: rgba(255, 189, 39, 1);
+  --bg-color-tint: rgba(13, 40, 57, 0.5);
+  --bg-color-ghost: rgba(242, 245, 248, 1);
+
+  --text-color-dark: rgba(13, 40, 57, 1);
+  --text-color-ghost: rgba(134, 147, 156, 1);
+  --text-color-light: rgba(255, 255, 255, 1);
+  --text-color-accent: rgba(69, 138, 251, 1);
+
+  --status-color-positive: rgba(158, 203, 69, 1);
+  --status-color-negative: rgba(254, 104, 69, 1);
+
+  --icon-color-dark: rgba(13, 40, 57, 1);
+  --icon-color-ghost: rgba(134, 147, 156, 1);
+  --icon-color-light: rgba(255, 255, 255, 1);
+  // spacing
+  --spacing-4: 4px;
+  --spacing-8: 8px;
+  --spacing-10: 10px;
+  --spacing-16: 16px;
+  --spacing-20: 20px;
+  --spacing-28: 28px;
+  --spacing-30: 30px;
+  --spacing-32: 32px;
+  --spacing-36: 36px;
+  --spacing-40: 40px;
+  --spacing-44: 44px;
+  --spacing-48: 48px;
+  --spacing-54: 54px;
+  --spacing-90: 90px;
+  // border
+  --border-radius-2: 2px;
+  --border-radius-10: 10px;
+  // sidebar
+  --sidebar-width: 138px;
+  // z-index
+  --z-index-app-modal: 10000;
+  --z-index-app-modal-tint: 9900;
+}
+
+// Custom CSS reset
+body {
+  font-family: 'Alegreya Sans', Arial, sans-serif;
+  font-size: 18px;
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-color-primary);
+}
+
+h1 {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+div,
+span,
+h1,
+h2,
+h3,
+p,
+a,
+article,
+aside,
+footer,
+header,
+section {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+}
+
+a {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 1);
+}
+
+ul {
+  list-style: none;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  opacity: 1;
+  transition: opacity 200ms;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
