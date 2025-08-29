@@ -22,6 +22,10 @@
   --icon-color-dark: rgba(13, 40, 57, 1);
   --icon-color-ghost: rgba(134, 147, 156, 1);
   --icon-color-light: rgba(255, 255, 255, 1);
+
+  --stroke-color-light: rgba(255, 255, 255, 1);
+  --stroke-color-accent: rgba(69, 138, 251, 1);
+  --stroke-color-ghost: rgba(185, 194, 201, 1);
   // spacing
   --spacing-4: 4px;
   --spacing-8: 8px;
@@ -36,6 +40,7 @@
   --spacing-40: 40px;
   --spacing-44: 44px;
   --spacing-48: 48px;
+  --spacing-50: 50px;
   --spacing-54: 54px;
   --spacing-90: 90px;
   --spacing-164: 164px;
@@ -45,8 +50,10 @@
   // sidebar
   --sidebar-width: 138px;
   // z-index
-  --z-index-app-modal: 10000;
+  --z-index-dropzone: 100;
+  --z-index-file-input: 200;
   --z-index-app-modal-tint: 9900;
+  --z-index-app-modal: 10000;
 }
 
 // Custom CSS reset
@@ -83,6 +90,7 @@ a {
 body {
   font-family: 'Alegreya Sans', Arial, sans-serif;
   font-size: 16px;
+  color: var(--text-color-dark);
   background-color: var(--bg-color-primary);
 
   &.locked {

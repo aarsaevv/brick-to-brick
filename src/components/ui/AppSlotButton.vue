@@ -20,7 +20,6 @@
     border: 0;
     background-color: transparent;
     font: inherit;
-    color: var(--text-color-dark);
     cursor: pointer;
 
     &:disabled {

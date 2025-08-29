@@ -67,8 +67,6 @@
       result = result.filter((doc) => doc.status === activeFilters.status);
     }
 
-    console.warn(activeFilters.sort);
-
     switch (activeFilters.sort) {
       case 'date-ascending':
         result.sort((a, b) => new Date(a.dateStart) - new Date(b.dateStart));
@@ -96,6 +94,10 @@
   };
 
   onBeforeMount(async () => {
+    //
+    setCurrentModalName('add_doc');
+    //
+
     profile.value = await fetchProfileData();
 
     documents.value = await fetchDocuments();

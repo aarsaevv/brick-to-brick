@@ -6,7 +6,7 @@
         <p :class="$style.modalTitle">
           {{ title }}
         </p>
-        <app-slot-button @click="onCloseModal">
+        <app-slot-button v-if="hasCloseButton" @click="onCloseModal">
           <icon-close />
         </app-slot-button>
       </div>
@@ -22,7 +22,7 @@
 
   defineProps({
     title: String,
-    hasCloseIcon: Boolean,
+    hasCloseButton: Boolean,
   });
 
   const { resetCurrentModalName } = useModal();
@@ -52,12 +52,13 @@
     top: var(--spacing-48);
     left: 50%;
     min-width: 650px;
-    height: 100%;
+    height: calc(100% - 96px);
     transform: translateX(-50%);
     background-color: var(--bg-color-light);
     padding: var(--spacing-30);
     border-radius: var(--border-radius-10);
     z-index: var(--z-index-app-modal);
+    overflow-y: scroll;
   }
 
   .modalHeader {
