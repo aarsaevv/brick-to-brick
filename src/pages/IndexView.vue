@@ -11,17 +11,6 @@
       </p>
       <documents-list :documents="filteredDocuments" />
     </div>
-
-    <h2 style="color: red; text-decoration: line-through">
-      Сделать фильтры - вёрстка плюс логика
-    </h2>
-    <h2 style="color: red; text-decoration: line-through">
-      Сделать документы (получение через fetch)
-    </h2>
-    <h2 style="color: red; text-decoration: line-through">
-      Сделать содержимое модалки
-    </h2>
-    <h2 style="color: red">Сделать добавление документов</h2>
   </section>
 </template>
 
@@ -92,6 +81,14 @@
     filteredDocuments.value = result;
   };
 
+  const resetFilters = () => {
+    activeFilters.extension = null;
+    activeFilters.status = null;
+    activeFilters.sort = null;
+
+    applyFilters();
+  };
+
   const openAddDocumentModal = () => {
     setCurrentModalName('add_doc');
   };
@@ -103,9 +100,13 @@
     applyFilters();
   });
 
-  watch(documents, (val) => {
-    filteredDocuments.value = val;
-  });
+  watch(
+    documents,
+    () => {
+      resetFilters();
+    },
+    { deep: true }
+  );
 </script>
 
 <style lang="scss" module>
