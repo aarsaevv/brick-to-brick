@@ -16,10 +16,10 @@
 
 <script setup>
   const props = defineProps({
-    id: { type: String },
-    modelValue: { type: [Array, Boolean] },
-    value: { type: [Boolean, Object] },
-    label: { type: String, default: '' },
+    id: String,
+    modelValue: Boolean,
+    value: Boolean,
+    label: String,
   });
 
   const emit = defineEmits(['update:modelValue']);

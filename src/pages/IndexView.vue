@@ -18,7 +18,9 @@
     <h2 style="color: red; text-decoration: line-through">
       Сделать документы (получение через fetch)
     </h2>
-    <h2 style="color: red">Сделать содержимое модалки</h2>
+    <h2 style="color: red; text-decoration: line-through">
+      Сделать содержимое модалки
+    </h2>
     <h2 style="color: red">Сделать добавление документов</h2>
   </section>
 </template>

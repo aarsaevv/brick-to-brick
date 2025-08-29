@@ -1,20 +1,24 @@
 <template>
   <app-modal title="Добавить документ" has-close-button>
     <div :class="$style.contentWrapper">
-      <app-radio name="Тип документа:" :options="availableTypes" />
+      <app-radio
+        v-model="form.type"
+        name="Тип документа:"
+        :options="availableTypes"
+      />
       <div :class="$style.info">
-        <app-input placeholder="Название документа" />
+        <app-input v-model="form.title" placeholder="Название документа" />
         <app-input placeholder="Номер" />
       </div>
       <div :class="$style.calendar">
-        <app-date label="Действует с:" />
-        <app-date label="по:" />
+        <app-date v-model="form.dateStart" label="Действует с:" />
+        <app-date v-model="form.dateEnd" label="по:" />
       </div>
       <div :class="$style.checkbox">
         <app-checkbox label="Оповещать об окончании" />
         <app-checkbox label="Создавать задачу при окончании" />
       </div>
-      <app-dropzone />
+      <app-dropzone @on-file-select="onFileSelect" />
       <div :class="$style.buttons">
         <app-button title="Добавить документ" @click="onAdd" />
         <app-button variation="secondary" title="Отмена" @click="onCancel" />
@@ -41,8 +45,37 @@
     { value: 'other', label: 'Другое' },
   ];
 
+  const form = reactive({
+    type: '',
+    title: '',
+    dateStart: '',
+    dateEnd: '',
+    file: {},
+  });
+
+  const documents = reactive([]);
+
+  const onFileSelect = (file) => (form.file = file);
+
   const onAdd = () => {
-    alert('Added!');
+    switch (false) {
+      case Boolean(form.type):
+        alert('Выберите тип документа');
+        return;
+      case Boolean(form.title):
+        alert('Введите название документа');
+        return;
+      case Boolean(form.dateStart && form.dateEnd):
+        alert('Выберите период действия документа');
+        return;
+      case Boolean(form.file):
+        alert('Загрузите документ');
+        return;
+    }
+
+    documents.push({ ...form, id: Date.now().toString() });
+    console.log('Документы:', documents);
+
     resetCurrentModalName();
   };
 

@@ -8,9 +8,15 @@
       </div>
       <div :class="$style.additionalInfo">
         <div :class="$style.socials">
-          <icon-whatsapp />
-          <icon-viber />
-          <icon-telegram />
+          <app-slot-button>
+            <icon-whatsapp />
+          </app-slot-button>
+          <app-slot-button>
+            <icon-viber />
+          </app-slot-button>
+          <app-slot-button>
+            <icon-telegram />
+          </app-slot-button>
         </div>
         <router-link to="/comments" :class="$style.commentsLink"
           >Комментарии</router-link

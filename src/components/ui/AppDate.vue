@@ -6,17 +6,17 @@
     <span v-if="!date" :class="$style.dateInfo">Не выбрано</span>
     <span v-else :class="$style.dateInfo">{{ date }}</span>
     <input
-      :class="$style.input"
       v-model="date"
+      :class="$style.input"
       type="date"
       :placeholder="placeholder"
-      @input="$emit('update:modelValue')"
+      @input="$emit('update:modelValue', date)"
     />
   </div>
 </template>
 
 <script setup>
-  defineProps({
+  const props = defineProps({
     modelValue: String,
     label: String,
     placeholder: String,
@@ -24,7 +24,7 @@
 
   defineEmits(['update:modelValue']);
 
-  const date = ref();
+  const date = ref(props.modelValue);
 </script>
 
 <style lang="scss" module>

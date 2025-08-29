@@ -4,12 +4,12 @@
     :type="type"
     :placeholder="placeholder"
     :class="$style.input"
-    @input="$emit('update:modelValue')"
+    @input="$emit('update:modelValue', input)"
   />
 </template>
 
 <script setup>
-  defineProps({
+  const props = defineProps({
     modelValue: String,
     type: String,
     placeholder: String,
@@ -17,7 +17,7 @@
 
   defineEmits(['update:modelValue']);
 
-  const input = ref('');
+  const input = ref(props.modelValue);
 </script>
 
 <style lang="scss" module>

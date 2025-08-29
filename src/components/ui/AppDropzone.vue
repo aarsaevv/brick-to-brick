@@ -1,25 +1,38 @@
 <template>
   <div :class="$style.dropzoneWrapper">
-    <input
-      type="file"
-      id="file"
-      multiple
-      :class="$style.file"
-      @change="() => {}"
-    />
+    <input type="file" id="file" :class="$style.file" @change="onFileSelect" />
     <div id="dropzone" :class="$style.dropzone">
-      <icon-plus />
-      <p>Загрузить файл</p>
-      <p :class="$style.dropzoneTip">
-        <span :class="$style.dropzoneLink">Выберите файл</span>
-        или перетащите его сюда
-      </p>
+      <p v-if="fileName">{{ fileName }}</p>
+      <template v-else>
+        <icon-plus />
+        <p>Загрузить файл</p>
+        <p :class="$style.dropzoneTip">
+          <span :class="$style.dropzoneLink">Выберите файл</span>
+          или перетащите его сюда
+        </p>
+      </template>
     </div>
   </div>
 </template>
 
 <script setup>
   import IconPlus from '@/components/icons/IconPlus.vue';
+
+  defineProps({
+    modelValue: Object,
+  });
+
+  const emit = defineEmits(['on-file-select']);
+
+  const fileName = ref('');
+
+  const onFileSelect = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      fileName.value = file.name;
+      emit('on-file-select', file);
+    }
+  };
 </script>
 
 <style lang="scss" module>
