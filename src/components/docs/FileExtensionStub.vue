@@ -10,8 +10,8 @@
   import IconDoc from '@/assets/images/doc.svg';
   import IconXls from '@/assets/images/xls.svg';
 
-  const { fileExtension } = defineProps({
-    fileExtension: String,
+  const { extension } = defineProps({
+    extension: String,
   });
 
   const iconMap = {
@@ -21,7 +21,7 @@
     xls: IconXls,
   };
 
-  const iconComponent = computed(() => iconMap[fileExtension]);
+  const iconComponent = computed(() => iconMap[extension]);
 </script>
 
 <style lang="scss" module>

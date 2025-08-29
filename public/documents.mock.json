@@ -5,30 +5,30 @@
     "title": "Договор №1",
     "dateStart": 1724828723000,
     "dateEnd": 1756364723000,
-    "fileExtension": "pdf"
+    "extension": "pdf"
   },
   {
     "id": "1",
     "status": "rejected",
-    "title": "Договор №2",
+    "title": "Справка",
     "dateStart": 1724528723000,
     "dateEnd": 1751364723000,
-    "fileExtension": "jpg"
+    "extension": "jpg"
   },
   {
     "id": "2",
-    "status": null,
+    "status": "draft",
     "title": "Договор №3",
     "dateStart": 1724328723000,
     "dateEnd": 1751394723000,
-    "fileExtension": "doc"
+    "extension": "doc"
   },
   {
     "id": "3",
-    "status": null,
-    "title": "Договор №4",
+    "status": "draft",
+    "title": "Заключение 4209",
     "dateStart": 1704528723000,
     "dateEnd": 1721364723000,
-    "fileExtension": "xls"
+    "extension": "xls"
   }
 ]

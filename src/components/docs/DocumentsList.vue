@@ -19,8 +19,8 @@
 <style lang="scss" module>
   .list {
     display: flex;
+    justify-content: flex-start;
     flex-wrap: wrap;
-    justify-content: space-between;
     gap: var(--spacing-20);
   }
 </style>

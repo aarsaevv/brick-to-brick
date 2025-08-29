@@ -5,7 +5,7 @@
       :id="filter.id"
       :label="filter.label"
       :options="filter.options"
-      @on-change="onFilterChange"
+      @update:model-value="onFilterChange"
     />
   </div>
 </template>
@@ -13,7 +13,7 @@
 <script setup>
   import AppSelect from '@/components/ui/AppSelect.vue';
 
-  const emit = defineEmits(['on-change']);
+  const emit = defineEmits(['on-filter-change']);
 
   const availableFilters = [
     {
@@ -21,20 +21,20 @@
       label: 'Тип документа',
       options: [
         {
-          value: 'pdf',
           name: 'PDF',
+          value: 'pdf',
         },
         {
-          value: 'doc',
           name: 'DOC',
+          value: 'doc',
         },
         {
-          value: 'xls',
           name: 'XLS',
+          value: 'xls',
         },
         {
-          value: 'jpg',
           name: 'JPG',
+          value: 'jpg',
         },
       ],
     },
@@ -43,12 +43,16 @@
       label: 'Статус',
       options: [
         {
-          value: 'concluded',
           name: 'Заключен',
+          value: 'concluded',
         },
         {
-          value: 'rejected',
           name: 'Расторгнут',
+          value: 'rejected',
+        },
+        {
+          name: 'Черновик',
+          value: 'draft',
         },
       ],
     },
@@ -57,19 +61,27 @@
       label: 'Сортировать по',
       options: [
         {
-          value: 'date',
-          name: 'Дате',
+          name: 'Дате по возр.',
+          value: 'date-ascending',
         },
         {
-          value: 'title',
-          name: 'Названию',
+          name: 'Дате по убыв.',
+          value: 'date-descending',
+        },
+        {
+          name: 'Названию по возр.',
+          value: 'title-ascending',
+        },
+        {
+          name: 'Названию по убыв.',
+          value: 'title-descending',
         },
       ],
     },
   ];
 
-  const onFilterChange = (event) => {
-    emit('on-change', event);
+  const onFilterChange = (id, value) => {
+    emit('on-filter-change', id, value);
   };
 </script>
 

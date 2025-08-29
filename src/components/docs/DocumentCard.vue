@@ -24,7 +24,7 @@
         </app-slot-button>
       </div>
     </div>
-    <file-extension-stub :file-extension="document.fileExtension" />
+    <file-extension-stub :extension="document.extension" />
   </div>
 </template>
 

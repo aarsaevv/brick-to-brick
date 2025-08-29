@@ -2,12 +2,13 @@
   <div :class="$style.wrapper">
     <label :for="id" :class="$style.label">{{ label }}</label>
     <select
+      v-model="selected"
       :name="name"
       :id="id"
       :class="$style.select"
       @change="onOptionChange"
     >
-      <option selected>Не выбрано</option>
+      <option selected value="">Не выбрано</option>
       <option v-for="option in options" :value="option.value">
         {{ option.name }}
       </option>
@@ -16,17 +17,19 @@
 </template>
 
 <script setup>
-  defineProps({
+  const { id } = defineProps({
     id: String,
     name: String,
     label: String,
     options: Array,
   });
 
-  const emit = defineEmits(['on-change']);
+  const emit = defineEmits(['update:modelValue']);
 
-  const onOptionChange = (event) => {
-    emit('on-change', event);
+  const selected = ref('');
+
+  const onOptionChange = () => {
+    emit('update:modelValue', id, selected.value);
   };
 </script>
 
