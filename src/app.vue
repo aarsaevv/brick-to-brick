@@ -14,9 +14,9 @@
 <script setup>
   import AppHeader from '@/components/AppHeader.vue';
   import AppSidebar from '@/components/AppSidebar.vue';
-  import useModal from '@/code/composables/use-modal.js';
+  import useModalStore from '@/code/stores/use-modal-store.js';
 
-  const { isModalOpened, currentModalComponent } = useModal();
+  const { isModalOpened, currentModalComponent } = useModalStore();
 
   watch(isModalOpened, () => {
     if (isModalOpened.value) {

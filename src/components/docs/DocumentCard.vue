@@ -24,7 +24,7 @@
         </app-slot-button>
       </div>
     </div>
-    <file-extension-stub :extension="document.extension" />
+    <file-extension-stub :extension="extension" />
   </div>
 </template>
 
@@ -35,6 +35,7 @@
   import AppSlotButton from '@/components/ui/AppSlotButton.vue';
   import { formatTimestampToDate } from '@/code/dom/date.js';
   import FileExtensionStub from '@/components/docs/FileExtensionStub.vue';
+  import { getFileExtension } from '@/code/helpers/get-file-extension.js';
 
   const { document } = defineProps({
     document: Object,
@@ -52,6 +53,10 @@
 
   const dateStart = computed(() => formatTimestampToDate(document.dateStart));
   const dateEnd = computed(() => formatTimestampToDate(document.dateEnd));
+
+  const extension = computed(
+    () => document.extension || getFileExtension(document.filename)
+  );
 </script>
 
 <style lang="scss" module>

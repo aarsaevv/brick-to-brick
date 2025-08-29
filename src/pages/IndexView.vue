@@ -26,7 +26,7 @@
 </template>
 
 <script setup>
-  import useModal from '@/code/composables/use-modal.js';
+  import useModalStore from '@/code/stores/use-modal-store.js';
   import useProfile from '@/code/composables/use-profile.js';
   import useDocuments from '@/code/composables/use-documents.js';
 
@@ -34,8 +34,10 @@
   import FiltersList from '@/components/docs/FiltersList.vue';
   import AppButton from '@/components/ui/AppButton.vue';
   import DocumentsList from '@/components/docs/DocumentsList.vue';
+  import useDocumentsStore from '@/code/stores/use-documents-store.js';
 
-  const { setCurrentModalName } = useModal();
+  const { setCurrentModalName } = useModalStore();
+  const { documents } = useDocumentsStore();
   const { fetchProfileData } = useProfile();
   const { fetchDocuments } = useDocuments();
 
@@ -47,7 +49,6 @@
 
   const profile = ref({});
 
-  const documents = ref([]);
   const filteredDocuments = ref([]);
 
   const onFilterChange = (id, value) => {
@@ -96,14 +97,14 @@
   };
 
   onBeforeMount(async () => {
-    //
-    setCurrentModalName('add_doc');
-    //
-
     profile.value = await fetchProfileData();
 
     documents.value = await fetchDocuments();
     applyFilters();
+  });
+
+  watch(documents, (val) => {
+    filteredDocuments.value = val;
   });
 </script>
 

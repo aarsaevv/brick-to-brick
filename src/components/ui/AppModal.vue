@@ -18,14 +18,14 @@
 <script setup>
   import AppSlotButton from '@/components/ui/AppSlotButton.vue';
   import IconClose from '@/components/icons/IconClose.vue';
-  import useModal from '@/code/composables/use-modal.js';
+  import useModalStore from '@/code/stores/use-modal-store.js';
 
   defineProps({
     title: String,
     hasCloseButton: Boolean,
   });
 
-  const { resetCurrentModalName } = useModal();
+  const { resetCurrentModalName } = useModalStore();
 
   const onCloseModal = () => {
     resetCurrentModalName();

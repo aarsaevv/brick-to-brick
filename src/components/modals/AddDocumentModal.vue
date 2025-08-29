@@ -33,11 +33,13 @@
   import AppCheckbox from '@/components/ui/AppCheckbox.vue';
   import AppDropzone from '@/components/ui/AppDropzone.vue';
   import AppRadio from '@/components/ui/AppRadio.vue';
-  import useModal from '@/code/composables/use-modal.js';
+  import useModalStore from '@/code/stores/use-modal-store.js';
   import AppInput from '@/components/ui/AppInput.vue';
   import AppDate from '@/components/ui/AppDate.vue';
+  import useDocumentsStore from '@/code/stores/use-documents-store.js';
 
-  const { resetCurrentModalName } = useModal();
+  const { resetCurrentModalName } = useModalStore();
+  const { addDocument } = useDocumentsStore();
 
   const availableTypes = [
     { value: 'contract', label: 'Договор' },
@@ -50,12 +52,11 @@
     title: '',
     dateStart: '',
     dateEnd: '',
-    file: {},
+    filename: {},
+    status: 'draft',
   });
 
-  const documents = reactive([]);
-
-  const onFileSelect = (file) => (form.file = file);
+  const onFileSelect = (file) => (form.filename = file.name);
 
   const onAdd = () => {
     switch (false) {
@@ -68,13 +69,12 @@
       case Boolean(form.dateStart && form.dateEnd):
         alert('Выберите период действия документа');
         return;
-      case Boolean(form.file):
+      case Boolean(form.filename):
         alert('Загрузите документ');
         return;
     }
 
-    documents.push({ ...form, id: Date.now().toString() });
-    console.log('Документы:', documents);
+    addDocument({ ...form, id: Date.now().toString() });
 
     resetCurrentModalName();
   };

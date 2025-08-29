@@ -24,7 +24,7 @@ const currentModalComponent = computed(() => {
 
 const isModalOpened = computed(() => currentModalName.value !== null);
 
-export default function useModal() {
+export default function useModalStore() {
   return {
     setCurrentModalName,
     resetCurrentModalName,
