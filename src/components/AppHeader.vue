@@ -8,6 +8,9 @@
 <script setup>
   import AppBreadcrumbs from '@/components/breadcrumbs/AppBreadcrumbs.vue';
   import AccountNavBlock from '@/components/account/AccountNavBlock.vue';
+  import useAccount from '@/code/composables/use-account.js';
+
+  const { fetchAccountData } = useAccount();
 
   const breadcrumbs = [
     {
@@ -25,16 +28,6 @@
   ];
 
   const account = ref({});
-
-  const fetchAccountData = async () => {
-    try {
-      const res = await fetch('/account.mock.json');
-
-      return await res.json();
-    } catch (e) {
-      console.error(e);
-    }
-  };
 
   onBeforeMount(async () => {
     account.value = await fetchAccountData();

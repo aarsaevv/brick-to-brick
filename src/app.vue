@@ -14,7 +14,7 @@
 <script setup>
   import AppHeader from '@/components/AppHeader.vue';
   import AppSidebar from '@/components/AppSidebar.vue';
-  import useModal from '@/code/use-modal.js';
+  import useModal from '@/code/composables/use-modal.js';
 
   const { isModalOpened, currentModalComponent } = useModal();
 

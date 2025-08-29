@@ -21,41 +21,28 @@
 </template>
 
 <script setup>
-  import useModal from '@/code/use-modal.js';
+  import useModal from '@/code/composables/use-modal.js';
+  import useProfile from '@/code/composables/use-profile.js';
+  import useDocuments from '@/code/composables/use-documents.js';
+
   import ProfileCard from '@/components/docs/ProfileCard.vue';
   import FiltersList from '@/components/docs/FiltersList.vue';
   import AppButton from '@/components/ui/AppButton.vue';
   import DocumentsList from '@/components/docs/DocumentsList.vue';
 
   const { setCurrentModalName } = useModal();
-
-  let timeoutId;
+  const { fetchProfileData } = useProfile();
+  const { fetchDocuments } = useDocuments();
 
   const profile = ref({});
+
   const documents = ref([]);
-
-  const fetchProfileData = async () => {
-    try {
-      const res = await fetch('/profile.mock.json');
-
-      return await res.json();
-    } catch (e) {
-      console.error(e);
-    }
-  };
-
-  const fetchDocuments = async () => {
-    return new Promise((resolve) => {
-      timeoutId = window.setTimeout(async () => {
-        const res = await fetch('/documents.mock.json');
-
-        resolve(res.json());
-      }, 1000);
-    });
-  };
+  const filteredDocuments = ref([]);
 
   const onFilterChange = (event) => {
     const { id, value } = event.target;
+
+    console.warn(documents.value);
 
     console.warn(id, value);
   };
@@ -66,13 +53,9 @@
 
   onBeforeMount(async () => {
     profile.value = await fetchProfileData();
-    documents.value = await fetchDocuments();
-  });
 
-  onUnmounted(() => {
-    if (timeoutId) {
-      window.clearTimeout(timeoutId);
-    }
+    documents.value = await fetchDocuments();
+    filteredDocuments.value = documents.value;
   });
 </script>
 

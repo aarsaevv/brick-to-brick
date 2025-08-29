@@ -18,7 +18,7 @@
 <script setup>
   import AppSlotButton from '@/components/ui/AppSlotButton.vue';
   import IconClose from '@/components/icons/IconClose.vue';
-  import useModal from '@/code/use-modal.js';
+  import useModal from '@/code/composables/use-modal.js';
 
   defineProps({
     title: String,

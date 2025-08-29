@@ -33,7 +33,7 @@
   import IconEdit from '@/components/icons/IconEdit.vue';
   import IconDelete from '@/components/icons/IconDelete.vue';
   import AppSlotButton from '@/components/ui/AppSlotButton.vue';
-  import { formatTimestampToDate } from '@/code/date.js';
+  import { formatTimestampToDate } from '@/code/dom/date.js';
   import FileExtensionStub from '@/components/docs/FileExtensionStub.vue';
 
   const { document } = defineProps({
